@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useArticles } from "../../../store/articles-context";
 import ListItem from "./ListItem";
 

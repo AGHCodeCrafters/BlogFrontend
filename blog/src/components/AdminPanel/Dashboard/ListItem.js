@@ -13,7 +13,7 @@ const ListItem = (props) => {
       </p>
 
       <InfoOutlinedIcon style={{ color: "#444444" }} onClick={props.showInfo} />
-      <Link to="/admin-panel/upload">
+      <Link to={`/admin-panel/upload/edit/${props.id}`}>
         <ModeEditOutlineOutlinedIcon
           style={{ color: "#444444" }}
           onClick={props.editItem}

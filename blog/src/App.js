@@ -7,8 +7,10 @@ import SignInForm from "./components/LoginAuth/SignInForm";
 import SignUpForm from "./components/LoginAuth/SignUpForm";
 import AdminPanel from "./pages/AdminPanel";
 import Dashboard from "./components/AdminPanel/Dashboard/Dashboard";
-import Upload from "./components/AdminPanel/Upload/Upload";
+import Upload from "./components/AdminPanel/Upload/ArticlesForm";
 import Settings from "./components/AdminPanel/Settings/Settings";
+import EditArticles from "./components/AdminPanel/Upload/EditArticles";
+import UploadArticles from "./components/AdminPanel/Upload/EditArticles";
 function App() {
   const router = createBrowserRouter([
     {
@@ -25,19 +27,28 @@ function App() {
             { path: "signup", element: <SignUpForm /> },
           ],
         },
-      ],
-    },
-    {
-      path: "admin-panel",
-      element: <AdminPanel />,
-      errorElement: <ErrorPage />,
-      children: [
         {
-          path: "dashboard",
-          element: <Dashboard />,
+          path: "admin-panel",
+          element: <AdminPanel />,
+          children: [
+            {
+              path: "dashboard",
+              element: <Dashboard />,
+            },
+            {
+              path: "upload",
+              element: <Upload />,
+              children: [
+                { index: true, element: <UploadArticles /> },
+                {
+                  path: "/admin-panel/upload/edit/:articleId",
+                  element: <EditArticles />,
+                },
+              ],
+            },
+            { path: "settings", element: <Settings /> },
+          ],
         },
-        { path: "upload", element: <Upload /> },
-        { path: "settings", element: <Settings /> },
       ],
     },
   ]);

@@ -7,9 +7,10 @@ const ModalInfo = () => {
   let index = null;
 
   index = articlesData.findIndex((item) => item.id === clickedItem);
+  console.log(articlesData[index].categories);
 
   return (
-    <div className="custom-width h-[40vh] p-[20px] absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-wrap items-center z-20 bg-white custom-box-shadow rounded-md">
+    <div className="custom-width p-[20px] absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-wrap items-center z-20 bg-white custom-box-shadow rounded-md">
       <InfoOutlinedIcon
         style={{
           color: "#4C32FF",
@@ -22,20 +23,20 @@ const ModalInfo = () => {
       </h1>
 
       <ul className="w-[100%] flex flex-col gap-[10px] p-[20px] text-[18px] text-gray_500 custom-box-shadow rounded-md">
-        <li className="p-[10px] font-medium custom-box-shadow rounded-md">
-          <span className="text-gray_300">Title: </span>
+        <li className="p-[10px] font-semidbold custom-box-shadow rounded-md">
+          <span className="font-medium text-gray_300">Title: </span>
           {index === null ? "" : articlesData[index].title}
         </li>
-        <li className="p-[10px] font-medium custom-box-shadow rounded-md">
-          <span className="text-gray_300">Author: </span>
+        <li className="p-[10px] font-semidbold custom-box-shadow rounded-md">
+          <span className="font-medium text-gray_300">Author: </span>
           {index === null ? "" : articlesData[index].author}
         </li>
-        <li className="p-[10px] font-medium custom-box-shadow rounded-md">
-          <span className="text-gray_300">Content type: </span>
-          {index === null ? "" : articlesData[index].category}
+        <li className="p-[10px] font-semidbold custom-box-shadow rounded-md">
+          <span className="font-medium text-gray_300">Content type: </span>
+          {index === null ? "" : articlesData[index].categories.join(" ")}
         </li>
-        <li className="p-[10px] font-medium custom-box-shadow rounded-md">
-          <span className="text-gray_300">Date of upload: </span>
+        <li className="p-[10px] font-semidbold custom-box-shadow rounded-md">
+          <span className="font-medium text-gray_300">Date of upload: </span>
           {index === null ? "" : articlesData[index].date}
         </li>
       </ul>

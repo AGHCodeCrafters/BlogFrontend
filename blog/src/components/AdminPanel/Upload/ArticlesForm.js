@@ -1,22 +1,21 @@
+import { useEffect, useState } from "react";
 import useInput from "../../../hooks/use-input";
 import { useArticles } from "../../../store/articles-context";
-import { useNavigate } from "react-router-dom";
-import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
+import { useNavigate, useParams } from "react-router-dom";
+import CategoryBox from "./CategoryBox";
 
-const Upload = () => {
-  const {
-    onUploadArticle,
-    articlesData,
-    clickedItem,
-    editMode,
-    onEditMode,
-    onEditArticle,
-  } = useArticles();
+const ArticlesForm = () => {
+  const { onUploadArticle, articlesData, editMode, onEditMode, onEditArticle } =
+    useArticles();
+
+  const [categories, setCategories] = useState([]);
+
+  const { articleId } = useParams();
 
   let index = null;
 
   if (editMode) {
-    index = articlesData.findIndex((item) => item.id === clickedItem);
+    index = articlesData.findIndex((item) => item.id === articleId);
   }
 
   const defaultValues = {
@@ -58,6 +57,16 @@ const Upload = () => {
   let year = String(today.getFullYear());
   const todaysDate = day + "." + month + "." + year;
 
+  useEffect(() => {}, [categories]);
+
+  const categoriesHandler = (categoriesData) => {
+    let categoriesArr = [];
+    categoriesArr = categoriesData
+      .filter((obj) => obj.marked === true)
+      .map((obj) => obj.category);
+    setCategories(categoriesArr);
+  };
+
   let formIsValid =
     titleIsValid && subtitleIsValid && authorIsvalid && articleIsvalid;
 
@@ -67,14 +76,19 @@ const Upload = () => {
     event.preventDefault();
     if (!formIsValid) return;
 
+    console.log(categories);
+
     const articleData = {
       title: enteredTitle,
       subtitle: enteredSubtitle,
       author: enteredAuthor,
+      categories: categories,
       article: enteredArticle,
       date: todaysDate,
       id: Math.floor(Math.random() * 1000),
     };
+
+    console.log(articleData);
 
     if (!editMode) {
       onUploadArticle(articleData);
@@ -95,7 +109,9 @@ const Upload = () => {
       onSubmit={submitFormHandler}
       className="w-[100%] h-[80vh] absolute px-[20px] flex flex-col overflow-y-auto overflow-x-hidden"
     >
-      <h2 className="mt-[20px] text-[24px] text-gray_500">Articles Ulpoad</h2>
+      <h2 className="mt-[20px] text-[24px] text-gray_500">{`${
+        editMode ? "Edit" : "Upload"
+      } Article`}</h2>
       <label className="text-[18px] mt-[20px] text-gray_700">Title</label>
       <input
         type="text"
@@ -122,14 +138,11 @@ const Upload = () => {
           onChange={authorChangeHandler}
           value={enteredAuthor}
           placeholder="Author..."
-          className="grow p-[10px] text-[16px] font-medium text-gray_500 focus:outline-none placeholder-gray_700"
+          className="p-[10px] text-[16px] font-medium text-gray_500 focus:outline-none placeholder-gray_700"
         ></input>
-        <KeyboardArrowDownOutlinedIcon
-          style={{ fontSize: "24px", color: "#757575", flexBasis: "10%" }}
-        />
       </div>
       <label className="text-[18px] mt-[20px] text-gray_700">Category</label>
-      <div className="min-h-[44px] mt-[20px] bg-blue rounded-md"></div>
+      <CategoryBox categories={categoriesHandler} />
       <label className="text-[18px] mt-[20px] text-gray_700">Article</label>
       <textarea
         id="article"
@@ -146,4 +159,4 @@ const Upload = () => {
   );
 };
 
-export default Upload;
+export default ArticlesForm;
