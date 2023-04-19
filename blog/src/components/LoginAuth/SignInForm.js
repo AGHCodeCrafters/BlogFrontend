@@ -1,6 +1,7 @@
 import useInput from "../../hooks/use-input";
 import { Link, useNavigate } from "react-router-dom";
 import { loginValidation, passwordValidation } from "./loginValidation";
+import { useState } from "react";
 
 const SignInForm = () => {
   const {
@@ -29,6 +30,12 @@ const SignInForm = () => {
 
   const navigate = useNavigate();
 
+  const [correctLoginData, setCorrectLoginData] = useState(true);
+  const DUMMY_USER = {
+    login: "User123",
+    password: "Password123456",
+  };
+
   let formIsValid = false;
 
   if (enteredLoginIsValid && enteredPasswordIsValid) {
@@ -38,6 +45,14 @@ const SignInForm = () => {
   const submitFormHandler = (event) => {
     event.preventDefault();
     if (!formIsValid) return;
+
+    if (
+      enteredLogin !== DUMMY_USER.login &&
+      enteredPassword !== DUMMY_USER.password
+    ) {
+      setCorrectLoginData(false);
+      return;
+    }
 
     console.log("zalogowano");
     navigate("/admin-panel/dashboard");
@@ -104,15 +119,17 @@ const SignInForm = () => {
           }`
         }
       ></input>
-      {passwordHasError && passwordIsLeft && (
+      {((passwordHasError && passwordIsLeft) || !correctLoginData) && (
         <p className={errorStyles}>Incorrect login or password</p>
       )}
+
       <p className="text-end mt-[10px] text-[15px] font-medium text-blue">
         Forgot Password?
       </p>
       <button
         className={
-          buttonStyles + `${formIsValid ? "bg-blue " : "bg-gray_700 "}`
+          buttonStyles +
+          `${formIsValid && correctLoginData ? "bg-blue " : "bg-gray_700 "}`
         }
       >
         Zaloguj się

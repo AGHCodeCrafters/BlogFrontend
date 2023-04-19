@@ -163,7 +163,7 @@ const SignUpForm = () => {
       <p className="text-center mb-[30px] text-[15px] font-normal text-gray_700">
         Don't have an account?{" "}
         <span className="font-semibold">
-          <Link to="/login/signin">Sign up</Link>
+          <Link to="/login/signin">Sign in</Link>
         </span>
       </p>
     </form>

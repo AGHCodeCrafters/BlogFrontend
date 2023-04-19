@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import ErrorPage from "./pages/ErrorPage";
@@ -11,8 +11,9 @@ import Upload from "./components/AdminPanel/Upload/ArticlesForm";
 import Settings from "./components/AdminPanel/Settings/Settings";
 import EditArticles from "./components/AdminPanel/Upload/EditArticles";
 import UploadArticles from "./components/AdminPanel/Upload/EditArticles";
+
 function App() {
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: <RootLayout />,
@@ -23,8 +24,8 @@ function App() {
           path: "login",
           element: <LoginPage />,
           children: [
-            { path: "signin", element: <SignInForm /> },
-            { path: "signup", element: <SignUpForm /> },
+            { path: "/login/signin", element: <SignInForm /> },
+            { path: "/login/signup", element: <SignUpForm /> },
           ],
         },
         {
