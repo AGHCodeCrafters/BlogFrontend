@@ -1,2 +1,4 @@
 # BlogFrontend
-Frontend for mock app made as a warmup before hackaton
+### https://aghcodecrafters.github.io/BlogFrontend/
+
+Project is far from being finished, readme will be updated soon
