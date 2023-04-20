@@ -6,7 +6,7 @@ const ListItem = (props) => {
   return (
     <li
       onClick={props.clickedItem}
-      className="h-[5vh] flex gap-[10px] p-[10px] items-center custom-box-shadow rounded-md"
+      className="h-[5vh] flex gap-[10px] p-[10px] md:p-[30px] items-center custom-box-shadow rounded-md"
     >
       <p className="grow text-gray_500 font-medium text-[18px]">
         {props.title}

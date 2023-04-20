@@ -64,18 +64,16 @@ const SignInForm = () => {
     "w-[100%] mt-[20px] text-[16px] font-semibold text-gray_500 border-b-2 focus:outline-none placeholder-gray_700 ";
 
   const buttonStyles =
-    "h-[40px] w-[100%] mt-[30px] mb-[30px] text-[16px] font-semibold text-white rounded-[10px] ";
+    "h-[40px] w-[100%] mt-[30px] text-[16px] font-semibold text-white rounded-[10px] ";
 
   const errorStyles = "text-[15px] mt-[10px] font-medium text-red";
 
   return (
     <form
       onSubmit={submitFormHandler}
-      className="custom-width h-auto absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] px-[20px] custom-box-shadow rounded-lg"
+      className="custom-width md:w-[500px] h-auto absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] px-[30px] py-[20px] custom-box-shadow rounded-lg"
     >
-      <h1 className="mt-[30px] text-[24px] font-bold text-gray_500">
-        Hi, Welcome Back
-      </h1>
+      <h1 className="text-[24px] font-bold text-gray_500">Hi, Welcome Back</h1>
       <p className="mt-[10px] text-[16px] font-normal text-gray_700">
         It's good to see you again! Hope you didn't miss any interesting
         articles.
@@ -128,14 +126,13 @@ const SignInForm = () => {
       </p>
       <button
         className={
-          buttonStyles +
-          `${formIsValid && correctLoginData ? "bg-blue " : "bg-gray_700 "}`
+          buttonStyles + `${formIsValid ? "bg-blue " : "bg-gray_700 "}`
         }
       >
         Zaloguj się
       </button>
 
-      <p className="text-center mb-[30px] text-[15px] font-normal text-gray_700">
+      <p className="text-center mt-[20px] text-[15px] font-normal text-gray_700">
         <span> Don't have an account</span>
         <span className="font-semibold">
           <Link to="/login/signup"> Sign Up</Link>

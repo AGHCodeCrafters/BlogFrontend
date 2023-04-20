@@ -7,7 +7,7 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 const Menu = () => {
   const { onEditMode } = useArticles();
   return (
-    <nav className="h-[10vh] w-[100%] p-[10px] flex items-center justify-around  fixed bottom-0 rounded-t-[24px] bg-blue ">
+    <nav className="h-[10vh] w-[100%] p-[10px] flex items-center justify-around  fixed bottom-0 rounded-t-[24px] md:rounded-t-none bg-blue ">
       <Link
         to="dashboard"
         className="flex flex-col items-center gap-1"

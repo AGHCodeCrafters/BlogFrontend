@@ -107,30 +107,36 @@ const ArticlesForm = () => {
   return (
     <form
       onSubmit={submitFormHandler}
-      className="w-[100%] h-[80vh] absolute px-[20px] flex flex-col overflow-y-auto overflow-x-hidden"
+      className="w-[100%] md:w-[70vw] absolute left-[50%] translate-x-[-50%] h-[80vh] px-[20px] flex flex-col overflow-y-auto overflow-x-hidden"
     >
-      <h2 className="mt-[20px] text-[24px] text-gray_500">{`${
+      <h2 className="mt-[20px] text-[24px] md:text-[30px] text-gray_500">{`${
         editMode ? "Edit" : "Upload"
       } Article`}</h2>
-      <label className="text-[18px] mt-[20px] text-gray_700">Title</label>
+      <label className="text-[18px] md:text-[24px] mt-[20px] text-gray_700">
+        Title
+      </label>
       <input
         type="text"
         id="title"
         onChange={titleChangeHandler}
         value={enteredTitle}
         placeholder="Title..."
-        className="w-[100%] p-[10px] mt-[20px] text-[16px] font-medium text-gray_500 focus:outline-none placeholder-gray_700 custom-box-shadow rounded-md"
+        className="w-[100%] p-[10px] md:p-[20px] mt-[20px] text-[16px] md:text-[18px] font-medium text-gray_500 focus:outline-none placeholder-gray_700 custom-box-shadow rounded-md"
       ></input>
-      <label className="text-[18px] mt-[20px] text-gray_700">Subtitle</label>
+      <label className="text-[18px] md:text-[24px] mt-[20px] text-gray_700">
+        Subtitle
+      </label>
       <input
         type="text"
         id="subTitle"
         onChange={subtitleChangeHandler}
         value={enteredSubtitle}
         placeholder="Subtitle..."
-        className="w-[100%] p-[10px] mt-[20px] text-[16px] font-medium text-gray_500 focus:outline-none placeholder-gray_700  custom-box-shadow rounded-md"
+        className="w-[100%] p-[10px] md:p-[20px] mt-[20px] text-[16px] md:text-[18px] font-medium text-gray_500 focus:outline-none placeholder-gray_700  custom-box-shadow rounded-md"
       ></input>
-      <label className="text-[18px] mt-[20px] font text-gray_700">Author</label>
+      <label className="text-[18px] md:text-[24px] mt-[20px] font text-gray_700">
+        Author
+      </label>
       <div className="flex items-center mt-[20px] custom-box-shadow rounded-md">
         <input
           type="text"
@@ -138,18 +144,22 @@ const ArticlesForm = () => {
           onChange={authorChangeHandler}
           value={enteredAuthor}
           placeholder="Author..."
-          className="p-[10px] text-[16px] font-medium text-gray_500 focus:outline-none placeholder-gray_700"
+          className="p-[10px] md:p-[20px] text-[16px] md:text-[18px] font-medium text-gray_500 focus:outline-none placeholder-gray_700"
         ></input>
       </div>
-      <label className="text-[18px] mt-[20px] text-gray_700">Category</label>
+      <label className="text-[18px] md:text-[24px] mt-[20px] text-gray_700">
+        Category
+      </label>
       <CategoryBox categories={categoriesHandler} />
-      <label className="text-[18px] mt-[20px] text-gray_700">Article</label>
+      <label className="text-[18px] md:text-[24px] mt-[20px] text-gray_700">
+        Article
+      </label>
       <textarea
         id="article"
         name="article"
         onChange={articleChangeHandler}
         value={enteredArticle}
-        className="min-h-[300px] mt-[20px] p-[10px] text-[18px] font-medium text-gray_500 focus:outline-none border-2 border-blue rounded-lg"
+        className="min-h-[300px] mt-[20px] p-[10px] text-[16px] md:text-[18px] font-medium text-gray_500 focus:outline-none border-2 border-blue rounded-lg"
         placeholder="Type..."
       ></textarea>
       <button className="min-h-[44px] mt-[20px] mb-[20px] text-[18px] font-medium text-white bg-blue rounded-md">

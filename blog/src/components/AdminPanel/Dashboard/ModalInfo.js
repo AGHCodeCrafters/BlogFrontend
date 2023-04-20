@@ -10,7 +10,7 @@ const ModalInfo = () => {
   console.log(articlesData[index].categories);
 
   return (
-    <div className="custom-width p-[20px] absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-wrap items-center z-20 bg-white custom-box-shadow rounded-md">
+    <div className="custom-width md:w-[40vw] p-[20px] absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-wrap items-center z-20 bg-white custom-box-shadow rounded-md">
       <InfoOutlinedIcon
         style={{
           color: "#4C32FF",
