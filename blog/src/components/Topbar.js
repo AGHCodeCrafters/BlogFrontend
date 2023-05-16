@@ -14,8 +14,8 @@ const Topbar = () => {
   };
 
   return (
-    <header className="h-[10vh] p-[20px] flex items-center justify-between shadow-md">
-      <h1 className="text-[24px] font-bold text-gray_300 cursor-pointer">
+    <header className="h-[10vh] md:h-[80px] lg:h-[60px] p-[20px] flex items-center justify-between shadow-md">
+      <h1 className="text-[24px] lg:text-[18px] font-bold text-gray_300 cursor-pointer">
         Crypto <span className="text-blue">Blog</span>
       </h1>
       <Link
@@ -29,7 +29,7 @@ const Topbar = () => {
         ) : (
           <LogoutIcon style={iconStyle} />
         )}
-        <p className="ml-[5px] text-[18px] font-semibold text-gray_500">
+        <p className="ml-[5px] text-[18px] lg:text-[16px] font-medium text-gray_500">
           {pathname.includes("login")
             ? "Go back"
             : pathname === "/"

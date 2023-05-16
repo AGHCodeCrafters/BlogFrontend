@@ -10,7 +10,7 @@ const ModalInfo = () => {
   console.log(articlesData[index].categories);
 
   return (
-    <div className="custom-width md:w-[40vw] p-[20px] absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-wrap items-center z-20 bg-white custom-box-shadow rounded-md">
+    <div className="custom-width md:w-[40vw] p-[20px] fixed top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-wrap items-center z-20 bg-white custom-box-shadow rounded-md">
       <InfoOutlinedIcon
         style={{
           color: "#4C32FF",
@@ -18,11 +18,11 @@ const ModalInfo = () => {
           marginBottom: "20px",
         }}
       />
-      <h1 className="grow ml-[10px] mb-[20px] text-[24px] text-gray_500 font-medium">
+      <h1 className="grow ml-[10px] mb-[20px] text-[24px] lg:text-[18px] text-gray_500 font-medium">
         Information
       </h1>
 
-      <ul className="w-[100%] flex flex-col gap-[10px] p-[20px] text-[18px] text-gray_500 custom-box-shadow rounded-md">
+      <ul className="w-[100%] flex flex-col gap-[10px] p-[20px] text-[18px] lg:text-[12px] text-gray_500 custom-box-shadow rounded-md">
         <li className="p-[10px] font-semidbold custom-box-shadow rounded-md">
           <span className="font-medium text-gray_300">Title: </span>
           {index === null ? "" : articlesData[index].title}

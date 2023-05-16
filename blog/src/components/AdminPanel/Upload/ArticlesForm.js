@@ -21,6 +21,7 @@ const ArticlesForm = () => {
   const defaultValues = {
     defaultTitle: index !== null ? articlesData[index].title : "",
     defaultSubtitle: index !== null ? articlesData[index].subtitle : "",
+    defaultThumbnail: index !== null ? articlesData[index].thumbnail : "",
     defaultAuthor: index !== null ? articlesData[index].author : "",
     defaultArticle: index !== null ? articlesData[index].article : "",
   };
@@ -43,6 +44,13 @@ const ArticlesForm = () => {
     reset: resetAuthorInput,
     valueIsValid: authorIsvalid,
   } = useInput(() => true, defaultValues.defaultAuthor);
+
+  const {
+    enteredValue: enteredThumbnail,
+    valueChangeHandler: thumbnailChangeHandler,
+    reset: resetThumbnailInput,
+    valueIsValid: thumbnailIsvalid,
+  } = useInput(() => true, defaultValues.defaultThumbnail);
 
   const {
     enteredValue: enteredArticle,
@@ -82,6 +90,7 @@ const ArticlesForm = () => {
       title: enteredTitle,
       subtitle: enteredSubtitle,
       author: enteredAuthor,
+      thumbnail: enteredThumbnail,
       categories: categories,
       article: enteredArticle,
       date: todaysDate,
@@ -104,65 +113,72 @@ const ArticlesForm = () => {
     resetArticle("");
   };
 
+  const labelStyle =
+    "text-[18px] md:text-[24px] lg:text-[14px] mt-[20px] text-gray_700";
+
+  const inputStyle =
+    "w-[100%] p-[10px] md:p-[20px] lg:p-[10px] mt-[20px] text-[16px] md:text-[18px] lg:text-[12px] font-medium text-gray_500 focus:outline-none placeholder-gray_700 custom-box-shadow rounded-md";
+
   return (
     <form
       onSubmit={submitFormHandler}
-      className="w-[100%] md:w-[70vw] absolute left-[50%] translate-x-[-50%] h-[80vh] px-[20px] flex flex-col overflow-y-auto overflow-x-hidden"
+      className="w-[100%] md:w-[90vw] lg:w-[40vw] absolute left-[50%] translate-x-[-50%] h-[80vh] px-[20px] flex flex-col overflow-y-auto overflow-x-hidden"
     >
-      <h2 className="mt-[20px] text-[24px] md:text-[30px] text-gray_500">{`${
+      <h2 className="mt-[20px] text-[24px] md:text-[30px] lg:text-[18px] text-gray_500">{`${
         editMode ? "Edit" : "Upload"
       } Article`}</h2>
-      <label className="text-[18px] md:text-[24px] mt-[20px] text-gray_700">
-        Title
-      </label>
+      <label className={labelStyle}>Title</label>
       <input
         type="text"
         id="title"
         onChange={titleChangeHandler}
         value={enteredTitle}
         placeholder="Title..."
-        className="w-[100%] p-[10px] md:p-[20px] mt-[20px] text-[16px] md:text-[18px] font-medium text-gray_500 focus:outline-none placeholder-gray_700 custom-box-shadow rounded-md"
+        className={inputStyle}
       ></input>
-      <label className="text-[18px] md:text-[24px] mt-[20px] text-gray_700">
-        Subtitle
-      </label>
+      <label className={labelStyle}>Subtitle</label>
       <input
         type="text"
         id="subTitle"
         onChange={subtitleChangeHandler}
         value={enteredSubtitle}
         placeholder="Subtitle..."
-        className="w-[100%] p-[10px] md:p-[20px] mt-[20px] text-[16px] md:text-[18px] font-medium text-gray_500 focus:outline-none placeholder-gray_700  custom-box-shadow rounded-md"
+        className={inputStyle}
       ></input>
-      <label className="text-[18px] md:text-[24px] mt-[20px] font text-gray_700">
-        Author
-      </label>
-      <div className="flex items-center mt-[20px] custom-box-shadow rounded-md">
-        <input
-          type="text"
-          id="category"
-          onChange={authorChangeHandler}
-          value={enteredAuthor}
-          placeholder="Author..."
-          className="p-[10px] md:p-[20px] text-[16px] md:text-[18px] font-medium text-gray_500 focus:outline-none placeholder-gray_700"
-        ></input>
-      </div>
-      <label className="text-[18px] md:text-[24px] mt-[20px] text-gray_700">
-        Category
-      </label>
+      <label className={labelStyle}>Author</label>
+
+      <input
+        type="text"
+        id="author"
+        onChange={authorChangeHandler}
+        value={enteredAuthor}
+        placeholder="Author..."
+        className={inputStyle}
+      ></input>
+
+      <label className={labelStyle}>Thumbnail</label>
+
+      <input
+        type="text"
+        id="thumbnail"
+        onChange={thumbnailChangeHandler}
+        value={enteredThumbnail}
+        placeholder="Image link..."
+        className={inputStyle}
+      ></input>
+
+      <label className={labelStyle}>Category</label>
       <CategoryBox categories={categoriesHandler} />
-      <label className="text-[18px] md:text-[24px] mt-[20px] text-gray_700">
-        Article
-      </label>
+      <label className={labelStyle}>Article</label>
       <textarea
         id="article"
         name="article"
         onChange={articleChangeHandler}
         value={enteredArticle}
-        className="min-h-[300px] mt-[20px] p-[10px] text-[16px] md:text-[18px] font-medium text-gray_500 focus:outline-none border-2 border-blue rounded-lg"
+        className="min-h-[300px] mt-[20px] p-[10px] text-[16px] md:text-[18px] lg:text-[12px] font-medium text-gray_500 focus:outline-none border-2 border-blue rounded-lg"
         placeholder="Type..."
       ></textarea>
-      <button className="min-h-[44px] mt-[20px] mb-[20px] text-[18px] font-medium text-white bg-blue rounded-md">
+      <button className="min-h-[44px] lg:h-[35px] mt-[20px] mb-[20px] text-[18px] lg:text-[14px] font-medium text-white bg-blue rounded-md">
         Upload an article
       </button>
     </form>

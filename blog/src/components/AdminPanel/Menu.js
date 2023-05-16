@@ -6,25 +6,25 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 
 const Menu = () => {
   const { onEditMode } = useArticles();
+  const iconsStyle = { fontSize: "24px", color: "#fff" };
+  const textStyles = "flex flex-col items-center gap-1";
   return (
-    <nav className="h-[10vh] w-[100%] p-[10px] flex items-center justify-around  fixed bottom-0 rounded-t-[24px] md:rounded-t-none bg-blue ">
+    <nav className="h-[80px] lg:h-[60px] w-[100%] p-[10px] text-[18px] lg:text-[12px] text-white flex items-center justify-around fixed bottom-0 rounded-t-[24px] md:rounded-t-none bg-blue ">
       <Link
         to="dashboard"
-        className="flex flex-col items-center gap-1"
+        className={textStyles}
         onClick={() => onEditMode(false)}
       >
-        <DescriptionOutlinedIcon style={{ fontSize: "24px", color: "#fff" }} />
-        <p className="text-[18px] text-white">Dashboard</p>
+        <DescriptionOutlinedIcon style={iconsStyle} />
+        <p>Dashboard</p>
       </Link>
-      <Link to="upload" className="flex flex-col items-center gap-2">
-        <DriveFileRenameOutlineOutlinedIcon
-          style={{ fontSize: "24px", color: "#fff" }}
-        />
-        <p className="text-[18px] text-white">Upload</p>
+      <Link to="upload" className={textStyles}>
+        <DriveFileRenameOutlineOutlinedIcon style={iconsStyle} />
+        <p>Upload</p>
       </Link>
-      <Link to="settings" className="flex flex-col items-center gap-2">
-        <SettingsOutlinedIcon style={{ fontSize: "24px", color: "#fff" }} />
-        <p className="text-[18px] text-white">Settings</p>
+      <Link to="settings" className={textStyles}>
+        <SettingsOutlinedIcon style={iconsStyle} />
+        <p>Settings</p>
       </Link>
     </nav>
   );
