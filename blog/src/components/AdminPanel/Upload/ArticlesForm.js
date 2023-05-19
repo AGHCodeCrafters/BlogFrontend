@@ -113,18 +113,17 @@ const ArticlesForm = () => {
     resetArticle("");
   };
 
-  const labelStyle =
-    "text-[18px] md:text-[24px] lg:text-[14px] mt-[20px] text-gray_700";
+  const labelStyle = "text-[18px]  mt-[20px] text-gray_700";
 
   const inputStyle =
-    "w-[100%] p-[10px] md:p-[20px] lg:p-[10px] mt-[20px] text-[16px] md:text-[18px] lg:text-[12px] font-medium text-gray_500 focus:outline-none placeholder-gray_700 custom-box-shadow rounded-md";
+    "w-[100%] p-[10px] md:p-[20px]  mt-[20px] text-[16px] font-medium text-gray_500 focus:outline-none placeholder-gray_700 custom-box-shadow rounded-md";
 
   return (
     <form
       onSubmit={submitFormHandler}
       className="w-[100%] md:w-[90vw] lg:w-[40vw] absolute left-[50%] translate-x-[-50%] h-[80vh] px-[20px] flex flex-col overflow-y-auto overflow-x-hidden"
     >
-      <h2 className="mt-[20px] text-[24px] md:text-[30px] lg:text-[18px] text-gray_500">{`${
+      <h2 className="mt-[20px] text-[24px] text-gray_500">{`${
         editMode ? "Edit" : "Upload"
       } Article`}</h2>
       <label className={labelStyle}>Title</label>

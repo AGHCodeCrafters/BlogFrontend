@@ -9,7 +9,7 @@ const LatestArticles = () => {
   const latestArticlesIndex = articlesData.findIndex((item) => item.latest);
 
   return (
-    <section className="custom-width lg:w-[80%] h-auto lg:m-auto mt-[20px] ml-[20px] lg:mt-[20px] flex flex-col lg:flex-row">
+    <section className="custom-width lg:w-[80%] h-auto lg:m-auto mt-[20px] ml-[20px] flex flex-col lg:flex-row">
       <LatestArticle />
       <ArticlesList />
     </section>

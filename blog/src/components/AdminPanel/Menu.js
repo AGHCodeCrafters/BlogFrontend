@@ -9,7 +9,7 @@ const Menu = () => {
   const iconsStyle = { fontSize: "24px", color: "#fff" };
   const textStyles = "flex flex-col items-center gap-1";
   return (
-    <nav className="h-[80px] lg:h-[60px] w-[100%] p-[10px] text-[18px] lg:text-[12px] text-white flex items-center justify-around fixed bottom-0 rounded-t-[24px] md:rounded-t-none bg-blue ">
+    <nav className="h-[80px] w-[100%] p-[10px] text-[18px] lg:text-[12px] text-white flex items-center justify-around fixed bottom-0 rounded-t-[24px] md:rounded-t-none bg-blue ">
       <Link
         to="dashboard"
         className={textStyles}

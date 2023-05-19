@@ -7,7 +7,7 @@ const LatestArticle = () => {
   const latestArticlesIndex = articlesData.findIndex((item) => item.latest);
 
   return (
-    <article className="w-[100%] lg:w-[60%] h-[300px] lg:h-[400px] lg:mr-[20px] relative">
+    <article className="w-[100%] lg:w-[60%] h-[300px] lg:h-[500px] lg:mr-[20px] relative">
       <div className="w-[100%] h-[100%] absolute bg-black opacity-60 z-10 rounded-md"></div>
       <img
         className="h-[100%] w-[100%] object-fill absolute rounded-md z-0"

@@ -3,18 +3,12 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 const ListItem = (props) => {
-  let iconStyle = { color: "#444444" };
-
-  if (window.innerWidth <= 1028) {
-    iconStyle["fontSize"] = "24px";
-  } else {
-    iconStyle["fontSize"] = "18px";
-  }
+  let iconStyle = { color: "#444444", fontSize: "24px" };
 
   return (
     <li
       onClick={props.clickedItem}
-      className="flex gap-[10px] p-[10px] md:p-[20px] lg:p-[10px] items-center cursor-pointer custom-box-shadow rounded-md"
+      className="flex gap-[10px] p-[10px] md:p-[20px] items-center cursor-pointer custom-box-shadow rounded-md"
     >
       <p className="grow text-gray_500 font-medium text-[18px] lg:text-[12px]">
         {props.title}

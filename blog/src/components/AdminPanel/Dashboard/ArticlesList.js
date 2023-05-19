@@ -29,7 +29,7 @@ const ArticlesList = () => {
   };
 
   return (
-    <ul className="custom-width mt-[20px] ml-[20px] p-[10px] md:p-[20px] flex flex-col gap-[10px] md:gap-[20px] custom-box-shadow rounded-md">
+    <ul className="custom-width lg:height-[300px] mt-[20px] ml-[20px] p-[10px] md:p-[20px] flex flex-col gap-[10px] md:gap-[20px] overflow-y-auto custom-box-shadow rounded-md">
       {articlesData.map((article) => (
         <ListItem
           title={article.title}

@@ -61,10 +61,10 @@ const SignInForm = () => {
   };
 
   const inputStyles =
-    "w-[100%] mt-[20px] lg:mt-[0px] lg:mb-[5px] text-[16px] lg:text-[12px] font-semibold text-gray_500 border-b-2 focus:outline-none placeholder-gray_700 ";
+    "w-[100%] mt-[20px] lg:mt-[0px] lg:mb-[10px] text-[16px] lg:text-[12px] font-semibold text-gray_500 border-b-2 focus:outline-none placeholder-gray_700 ";
 
   const buttonStyles =
-    "h-[40px] lg:h-[30px] w-[100%] mt-[30px] lg:mt-[15px] text-[16px] lg:text-[12px] font-semibold text-white rounded-[10px] ";
+    "h-[40px] w-[100%] mt-[30px] lg:mt-[20px] text-[16px] font-semibold text-white rounded-[10px] ";
 
   const errorStyles =
     "text-[15px] lg:text-[10px] mt-[10px] font-medium text-red";
@@ -72,12 +72,10 @@ const SignInForm = () => {
   return (
     <form
       onSubmit={submitFormHandler}
-      className="custom-width md:w-[500px] lg:w-[250px] h-auto absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] px-[30px] lg:px-[20px] py-[20px]  custom-box-shadow rounded-lg"
+      className="custom-width md:w-[500px] lg:w-[400px] h-auto absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] px-[30px] lg:px-[20px] py-[20px]  custom-box-shadow rounded-lg"
     >
-      <h1 className="text-[24px] lg:text-[18px] font-bold text-gray_500">
-        Hi, Welcome Back
-      </h1>
-      <p className="mt-[10px] lg:mt-[5px] lg:mb-[10px] text-[16px] lg:text-[12px] font-normal text-gray_700">
+      <h1 className="text-[24px] font-bold text-gray_500">Hi, Welcome Back</h1>
+      <p className="mt-[10px] lg:mt-[5px] lg:mb-[20px] text-[16px]  font-normal text-gray_700">
         It's good to see you again! Hope you didn't miss any interesting
         articles.
       </p>
@@ -124,7 +122,7 @@ const SignInForm = () => {
         <p className={errorStyles}>Incorrect login or password</p>
       )}
 
-      <p className="text-end mt-[10px] lg:mt-[0px] text-[15px] lg:text-[10px] font-medium text-blue">
+      <p className="text-end mt-[10px] lg:mt-[0px] text-[15px] lg:text-[12px] font-medium text-blue">
         Forgot Password?
       </p>
       <button
@@ -135,7 +133,7 @@ const SignInForm = () => {
         Zaloguj się
       </button>
 
-      <p className="text-center mt-[20px] lg:mt-[10px] text-[15px] lg:text-[10px] font-normal text-gray_700">
+      <p className="text-center mt-[20px] lg:mt-[10px] text-[15px] lg:text-[12px] font-normal text-gray_700">
         <span> Don't have an account</span>
         <span className="font-semibold">
           <Link to="/login/signup"> Sign Up</Link>

@@ -9,8 +9,8 @@ import Overlay from "../../UI/Overlay";
 const Dashboard = () => {
   const { showInfoModal } = useArticles();
   return (
-    <section className="h-[80vh] md:w-[90vw] lg:mb-[20px] overflow-y-auto md:mx-auto flex flex-col">
-      <h2 className="ml-[20px] mt-[20px] text-[24px] lg:text-[18px] font-medium text-gray_500">
+    <section className="h-[80vh] md:w-[90vw] lg:mb-[20px] md:mx-auto flex flex-col">
+      <h2 className="ml-[20px] mt-[20px] text-[24px] font-medium text-gray_500">
         Articles dashboard
       </h2>
       <SearchBox />

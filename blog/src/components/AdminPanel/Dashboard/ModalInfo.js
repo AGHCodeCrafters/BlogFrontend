@@ -22,7 +22,7 @@ const ModalInfo = () => {
         Information
       </h1>
 
-      <ul className="w-[100%] flex flex-col gap-[10px] p-[20px] text-[18px] lg:text-[12px] text-gray_500 custom-box-shadow rounded-md">
+      <ul className="w-[100%] flex flex-col gap-[20px] p-[20px] text-[18px] lg:text-[12px] text-gray_500 custom-box-shadow rounded-md">
         <li className="p-[10px] font-semidbold custom-box-shadow rounded-md">
           <span className="font-medium text-gray_300">Title: </span>
           {index === null ? "" : articlesData[index].title}
