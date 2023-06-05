@@ -16,6 +16,7 @@ const ArticlesList = () => {
             thumbnail={article.thumbnail}
             categories={article.categories[0].toUpperCase()}
             title={article.title}
+            id={article.id}
           />
         ))}
     </ul>

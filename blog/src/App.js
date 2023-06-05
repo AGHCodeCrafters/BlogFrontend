@@ -11,6 +11,7 @@ import Upload from "./components/AdminPanel/Upload/ArticlesForm";
 import Settings from "./components/AdminPanel/Settings/Settings";
 import EditArticles from "./components/AdminPanel/Upload/EditArticles";
 import UploadArticles from "./components/AdminPanel/Upload/EditArticles";
+import ArticlePage from "./pages/ArticlePage";
 
 function App() {
   const router = createHashRouter([
@@ -19,7 +20,15 @@ function App() {
       element: <RootLayout />,
       errorElement: <ErrorPage />,
       children: [
-        { index: true, element: <HomePage /> },
+        {
+          index: true,
+          path: "/articles",
+          element: <HomePage />,
+        },
+        {
+          path: "/articles/article/:articleid",
+          element: <ArticlePage />,
+        },
         {
           path: "login",
           element: <LoginPage />,
